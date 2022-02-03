@@ -1,9 +1,16 @@
+import 'package:chair_survivor/constants.dart';
+import 'package:chair_survivor/pages/home/home_page.dart';
+import 'package:chair_survivor/viewmodels/game_viewmodel.dart';
 import 'package:flutter/material.dart';
-
-import 'home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => GameViewModel(totalSeats: 100),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: Constants.appName,
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomePage(),
     );
   }
