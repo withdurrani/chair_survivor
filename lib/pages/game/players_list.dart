@@ -15,6 +15,7 @@ class PlayersList extends StatelessWidget {
     final double _visibleSize = _didGameComplete ? 300 : 50;
 
     return SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
       child: Wrap(
         children: players
             .map(
